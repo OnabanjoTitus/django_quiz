@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+<body>
+<ol>
+    {% for question in questions %}
+    <li>
+       <p> {{ question.question_text }}</p>
+        <ol>
+             {% for choice in question.choice_set.all %}
+            <li><label>
+                <input type="checkbox">{{ choice.choice_text }}
+            </label></li>
+                 {% endfor %}
+        </ol>
+    </li>
+    {% endfor %}
+</ol>
+<a href="{% url 'submit_page' %}"><button type="button">Submit</button></a>
+</body>
+</html>
