@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TWITTER</title>
+    <style>
+        *{
+            background-color:wheat;
+        }
+        #submit{
+            border-radius: 20px;
+           background-color:  aqua;
+        }
+        #tweets{
+            color: brown;
+            font-family: "Arial Black", serif;
+        }
+        #each_tweet{
+             border: 2px solid black;
+        }
+        h3{
+            color: blue;
+        }
+        h2{
+        color: blue;
+        }
+    </style>
+
+</head>
+<body>
+<h2>WELCOME TO TWITTER</h2>
+    <form action="" method="post" >
+      {% csrf_token %}
+    {{ form.as_p }}
+    <button id="submit" type="submit">tweet</button>
+    </form>
+    <h3>TWEETS</h3>
+    <div id="tweets">
+    {% for tweet in tweets %}
+        <div id="each_tweet">
+        <p>{{ tweet.tweet_text }}</p>
+        <p>{{ tweet.pub_date }}</p>
+        &hearts; &infin; &gamma;
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
